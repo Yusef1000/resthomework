@@ -1,0 +1,29 @@
+{
+  "name": "resthomework",
+  "version": "1.0.0",
+  "description": "Write a server that provides a REST API. A lot is left for your interpretation and decision-making. In the end, one should be able to interact with the API on a server somewhere using postman or CURL with a simple key. One should also be able to build the code from the repo and run it locally.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yusef1000/resthomework.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yusef1000/resthomework/issues"
+  },
+  "homepage": "https://github.com/Yusef1000/resthomework#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.4.3",
+    "nodemon": "^1.18.9"
+  },
+  "engines":{
+    "node": "10.15.0"
+  }
+}
