@@ -44,8 +44,10 @@ app.post('/api/login', (req, res) => {
 });
 
 // PORT NUMBER------------------------------------------------------------------
-let port = process.env.PORT || 1234;
-
-app.listen(port, () => {
+let port = 1234;
+app.get('/', function (req, res) {
+  res.send('Hello World!')
+})
+app.listen(port, '0.0.0.0',() => {
   console.log('Server up and running on port ' + port);
 });

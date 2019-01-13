@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "ece58c09-82cc-44f5-b909-58b35b9dd766",
+		"name": "products",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/products/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"name": "Content-Type",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Ill1c2VmIiwiZW1haWwiOiJ5dXNlZkBoYmMuY29tIn0sImlhdCI6MTU0NzMyMjE2M30.KCEd2GzF4KiuL-S3R6WQNqPdVr6_WxNGHyTpIzfgT0k",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Ill1c2VmIiwiZW1haWwiOiJ5dXNlZkBoYmMuY29tIn0sImlhdCI6MTU0NzMyMjE2M30.KCEd2GzF4KiuL-S3R6WQNqPdVr6_WxNGHyTpIzfgT0k"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "price",
+							"value": "25",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Levis",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "pants",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:1234/products/create",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"products",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/products/PRODUCT_ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Ill1c2VmIiwiZW1haWwiOiJ5dXNlZkBoYmMuY29tIn0sImlhdCI6MTU0NzMyMjE2M30.KCEd2GzF4KiuL-S3R6WQNqPdVr6_WxNGHyTpIzfgT0k",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:1234/products/5c3976e1355da32a84c00b8b",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"products",
+						"5c3976e1355da32a84c00b8b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/products/PRODUCT_ID/update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"name": "Content-Type",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Ill1c2VmIiwiZW1haWwiOiJ5dXNlZkBoYmMuY29tIn0sImlhdCI6MTU0NzMyMjE2M30.KCEd2GzF4KiuL-S3R6WQNqPdVr6_WxNGHyTpIzfgT0k",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Ill1c2VmIiwiZW1haWwiOiJ5dXNlZkBoYmMuY29tIn0sImlhdCI6MTU0NzMyMjE2M30.KCEd2GzF4KiuL-S3R6WQNqPdVr6_WxNGHyTpIzfgT0k"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Arizona",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:1234/products/5c3976e1355da32a84c00b8b/update",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"products",
+						"5c3976e1355da32a84c00b8b",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/products/PRODUCT_ID/delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Ill1c2VmIiwiZW1haWwiOiJ5dXNlZkBoYmMuY29tIn0sImlhdCI6MTU0NzMyMjE2M30.KCEd2GzF4KiuL-S3R6WQNqPdVr6_WxNGHyTpIzfgT0k",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:1234/products/5c3a476e829c0a14080e2240/delete",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"products",
+						"5c3a476e829c0a14080e2240",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

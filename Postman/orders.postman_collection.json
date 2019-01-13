@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "f49a2dc4-66f0-4458-b352-265e558bf8e2",
+		"name": "orders",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/order/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"name": "Content-Type",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Ill1c2VmIiwiZW1haWwiOiJ5dXNlZkBoYmMuY29tIn0sImlhdCI6MTU0NzMyMjE2M30.KCEd2GzF4KiuL-S3R6WQNqPdVr6_WxNGHyTpIzfgT0k",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Ill1c2VmIiwiZW1haWwiOiJ5dXNlZkBoYmMuY29tIn0sImlhdCI6MTU0NzMyMjE2M30.KCEd2GzF4KiuL-S3R6WQNqPdVr6_WxNGHyTpIzfgT0k"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "productID",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "count",
+							"value": "7",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "101 Main Stree",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:1234/order/create",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"order",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/order/ORDER_ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Ill1c2VmIiwiZW1haWwiOiJ5dXNlZkBoYmMuY29tIn0sImlhdCI6MTU0NzMyMjE2M30.KCEd2GzF4KiuL-S3R6WQNqPdVr6_WxNGHyTpIzfgT0k",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:1234/order/5c3a49169093121e28e6a8d5",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"order",
+						"5c3a49169093121e28e6a8d5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/order/ORDER_ID/update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"name": "Content-Type",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Ill1c2VmIiwiZW1haWwiOiJ5dXNlZkBoYmMuY29tIn0sImlhdCI6MTU0NzMyMjE2M30.KCEd2GzF4KiuL-S3R6WQNqPdVr6_WxNGHyTpIzfgT0k",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Ill1c2VmIiwiZW1haWwiOiJ5dXNlZkBoYmMuY29tIn0sImlhdCI6MTU0NzMyMjE2M30.KCEd2GzF4KiuL-S3R6WQNqPdVr6_WxNGHyTpIzfgT0k"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "count",
+							"value": "30",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:1234/order/5c399e20eba974289028ed7d/update",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"order",
+						"5c399e20eba974289028ed7d",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/order/ORDER_ID/delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"name": "Content-Type",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Ill1c2VmIiwiZW1haWwiOiJ5dXNlZkBoYmMuY29tIn0sImlhdCI6MTU0NzMyMjE2M30.KCEd2GzF4KiuL-S3R6WQNqPdVr6_WxNGHyTpIzfgT0k",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Ill1c2VmIiwiZW1haWwiOiJ5dXNlZkBoYmMuY29tIn0sImlhdCI6MTU0NzMyMjE2M30.KCEd2GzF4KiuL-S3R6WQNqPdVr6_WxNGHyTpIzfgT0k"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:1234/order/5c3a43405c2fd92c38e6b59b/delete",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"order",
+						"5c3a43405c2fd92c38e6b59b",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
