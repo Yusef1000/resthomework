@@ -1,41 +1,28 @@
-# The homework
-Write a server that provides a REST API. A lot is left for your interpretation and decision-making. In the end, one should be able to interact with the API on a server somewhere using postman or CURL with a simple key. One should also be able to build the code from the repo and run it locally.
+Hello HBC,
 
-# Write the code
-Fork this repo. Use any programming language, framework, database, etc.
+Just wanted to add some quick documentation for the application.
 
-## Required Models
+**Run locally:**
+1. navigate to root of directory and run npm install
+2. run node app.js
+3. server is up and running on port localhost:1234
+4. Open Postman
+5. Make this post request,which should return a token
+_localhost:1234/api/login_
+6. To call other endpoints, include this token in the headers with key: Authorization and value: Bearer [your token]
 
-**Product**
+**Run on heroku:**
+1. Open Postman
+2. Make this post request,which should return a token
+ _https://yusefresthomework.herokuapp.com/api/login_
+4. To call other endpoints, include this token in the headers with key: Authorization and value: Bearer [your token]
 
-Write a basic CRUD API for this model with the following required fields:
-- price
-- product name
-- type (ex. Jewelry, Shoes, Men's Shirts, etc)
+**Docker:**
+To run docker version of app simply run
+_docker build -t resthomework .
+docker run -p [DESIRED PORT]:1234 resthomework_
 
-**Inventory**
 
-Write a basic CRUD API for this with the following required fields:
-- product ID
-- count (amount in inventory)
-
-**Order**
-
-Write a basic CRUD API for this  with the following required Fields
-- product ID
-- count (amount of product in the order)
-- address
-
-In general, maintain coherence between order counts and inventory counts. For instance, when an order is created, the application should subtract from inventory. When an order is deleted, the application should add back the order's items to the inventory.
-
-# Secure the API
-Use SSL (letsencrypt certs are good). Endpoints should be secured using some kind of token. One option for tokens is to use github or google OAuth and whitelist specific user ids that can be given to you.
-
-# Run locally
-Someone should be to pull down your branch and, fairly easily, run the code locally.
-
-# Deploy it and create a PR
-Deploy it somewhere Heroku, AWS, Google Cloud, etc.  Create a PR back to this repo from your fork and include the URL to the deployed app.
-
-# Dockerize the application
-Create a Dockerfile so anyone with the repo can build a docker image
+Notes:
+I’ve included my postman files, please feel free to import and use them
+The database is stored on mLab hosted on aws

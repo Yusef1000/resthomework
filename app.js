@@ -1,4 +1,6 @@
 // IMPORTS----------------------------------------------------------------------
+const fs = require('fs');
+var marked = require('marked');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -46,7 +48,9 @@ app.post('/api/login', (req, res) => {
 // PORT NUMBER------------------------------------------------------------------
 let port = process.env.PORT || 1234;
 app.get('/', function (req, res) {
-  res.send('Hello World!')
+  var path = __dirname + '/README.md';
+  var file = fs.readFileSync(path, 'utf8');
+  res.send(marked(file.toString()));
 })
 app.listen(port, '0.0.0.0',() => {
   console.log('Server up and running on port ' + port);
