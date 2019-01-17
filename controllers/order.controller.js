@@ -38,22 +38,30 @@ exports.order_create = function(req, res) {
 };
 
 // READ-------------------------------------------------------------------------
-exports.order_details = function(req, res) {
+exports.order_details = function(req, res, next) {
     const bearerToken = getToken(req, res);
     jwt.verify(bearerToken, 'secretkey', (err, data) => {
         if (err) {
             res.sendStatus(403);
         } else {
             Order.findById(req.params.id, function(err, order) {
-                if (err) return next(err);
-                res.send(order);
+                if (err){
+                  res.send('Object does not exist');
+                  return next(err);
+                }
+                else if(!order){
+                    res.send('Object does not exist');
+                }
+                else{
+                  res.send(order);
+                }
             });
         };
     });
 };
 
 // UPDATE-----------------------------------------------------------------------
-exports.order_update = function(req, res) {
+exports.order_update = function(req, res, next) {
     const bearerToken = getToken(req, res);
     jwt.verify(bearerToken, 'secretkey', (err, data) => {
         if (err) {
@@ -62,23 +70,36 @@ exports.order_update = function(req, res) {
             Order.findByIdAndUpdate(req.params.id, {
                 $set: req.body
             }, function(err, order) {
-                if (err) return next(err);
+                if (err){
+                  res.send('Object does not exist');
+                  return next(err);
+                }
+                else if(!order){
+                  res.send('Object does not exist');
+                }
+                else{
                 res.send('Order Updated.');
+              }
             });
         };
     });
 };
 
 // DELETE-----------------------------------------------------------------------
-exports.order_delete = function(req, res) {
+exports.order_delete = function(req, res,next) {
     const bearerToken = getToken(req, res);
     jwt.verify(bearerToken, 'secretkey', (err, data) => {
         if (err) {
             res.sendStatus(403);
         } else {
             Order.findById(req.params.id, function(err, order) {
-                if (err) return next(err);
-
+                if (err){
+                  res.send('Object does not exist');
+                  return next(err);
+                }
+                if(!order){
+                  res.send('Object does not exist');
+                }
                 // INCREMENT COUNT IN INVENTORY
                 Inventory.findOneAndUpdate({
                         productID: order.productID
@@ -98,4 +119,16 @@ exports.order_delete = function(req, res) {
             });
         }
     });
+};
+// GET ALL----------------------------------------------------------------------
+exports.order_getAll = function(req, res) {
+            Order.find(function(err, order) {
+              if (!err){
+                res.send(order);
+              }
+              else{
+                res.send('Object does not exist');
+                return next(err);
+              }
+            });
 };

@@ -85,6 +85,29 @@
 			"response": []
 		},
 		{
+			"name": "/order/getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:1234/order/getAll",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"order",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "/order/ORDER_ID/update",
 			"request": {
 				"method": "PUT",

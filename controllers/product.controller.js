@@ -25,22 +25,31 @@ exports.product_create = function(req, res) {
 };
 
 // READ-------------------------------------------------------------------------
-exports.product_details = function(req, res) {
+exports.product_details = function(req, res,next) {
     const bearerToken = getToken(req, res);
     jwt.verify(bearerToken, 'secretkey', (err, data) => {
         if (err) {
             res.sendStatus(403);
-        } else {
+        }
+        else {
             Product.findById(req.params.id, function(err, product) {
-                if (err) return next(err);
-                res.send(product);
+                if (err){
+                  res.send('Object does not exist');
+                  return next(err);
+                }
+                else if(!product){
+                    res.send('Object does not exist');
+                }
+                else{
+                  res.send(product);
+              }
             })
         }
     });
 };
 
 // UPDATE-----------------------------------------------------------------------
-exports.product_update = function(req, res) {
+exports.product_update = function(req, res, next) {
     const bearerToken = getToken(req, res);
     jwt.verify(bearerToken, 'secretkey', (err, data) => {
         if (err) {
@@ -49,24 +58,53 @@ exports.product_update = function(req, res) {
             Product.findByIdAndUpdate(req.params.id, {
                 $set: req.body
             }, function(err, product) {
-                if (err) return next(err);
-                res.send('Product Updated.');
+                if (err){
+                  res.send('Object does not exist');
+                  return next(err);
+                }
+                else if(!product){
+                  res.send('Object does not exist');
+                }
+                else{
+                  res.send('Product Updated.');
+              }
             });
         }
     });
 };
 
 // DELETE-----------------------------------------------------------------------
-exports.product_delete = function(req, res) {
+exports.product_delete = function(req, res, next) {
     const bearerToken = getToken(req, res);
     jwt.verify(bearerToken, 'secretkey', (err, data) => {
         if (err) {
             res.sendStatus(403);
         } else {
-            Product.findByIdAndRemove(req.params.id, function(err) {
-                if (err) return next(err);
+            Product.findByIdAndRemove(req.params.id, function(err,data) {
+                if (err){
+                  res.send('Object does not exist');
+                  return next(err);
+                }
+                else if (!data) {
+                  res.send('Object does not exist');
+                }
+                else{
                 res.send('Product Deleted');
+              }
             })
         }
     });
+};
+
+// GET ALL----------------------------------------------------------------------
+exports.product_getAll = function(req, res) {
+            Product.find(function(err, product) {
+              if (!err){
+                res.send(product);
+              }
+              else{
+                res.send('Object does not exist');
+                return next(err);
+              }
+            });
 };

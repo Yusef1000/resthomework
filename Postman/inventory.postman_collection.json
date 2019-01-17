@@ -149,6 +149,35 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "/inventory/getAll",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Ill1c2VmIiwiZW1haWwiOiJ5dXNlZkBoYmMuY29tIn0sImlhdCI6MTU0Nzc2MDc2Mn0.P2aXFotoa9CC52hJblXw9bvO8xH9vwUOzQY45aq9dQY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:1234/inventory/getAll",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"inventory",
+						"getAll"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

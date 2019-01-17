@@ -154,6 +154,29 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "/products/getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:1234/products/getAll",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"products",
+						"getAll"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

@@ -25,22 +25,32 @@ exports.inventory_create = function(req, res) {
 
 
 // READ-------------------------------------------------------------------------
-exports.inventory_details = function(req, res) {
+exports.inventory_details = function(req, res,next) {
     const bearerToken = getToken(req, res);
     jwt.verify(bearerToken, 'secretkey', (err, data) => {
         if (err) {
             res.sendStatus(403);
-        } else {
+        }
+        else {
             Inventory.findById(req.params.id, function(err, inventory) {
-                if (err) return next(err);
+              if (err){
+                res.send('Object does not exist');
+                return next(err);
+              }
+
+              else if(!inventory){
+                  res.send('Object does not exist');
+              }
+              else{
                 res.send(inventory);
+              }
             });
         };
     });
 };
 
 // UPDATE-----------------------------------------------------------------------
-exports.inventory_update = function(req, res) {
+exports.inventory_update = function(req, res,next) {
     const bearerToken = getToken(req, res);
     jwt.verify(bearerToken, 'secretkey', (err, data) => {
         if (err) {
@@ -49,8 +59,16 @@ exports.inventory_update = function(req, res) {
             Inventory.findByIdAndUpdate(req.params.id, {
                 $set: req.body
             }, function(err, inventory) {
-                if (err) return next(err);
+                if (err){
+                  res.send('Object does not exist');
+                  return next(err);
+                }
+                else if(!inventory){
+                  res.send('Object does not exist');
+                }
+                else{
                 res.send('Inventory Updated.');
+              }
             });
         };
     });
@@ -63,10 +81,31 @@ exports.inventory_delete = function(req, res) {
         if (err) {
             res.sendStatus(403);
         } else {
-            Inventory.findByIdAndRemove(req.params.id, function(err) {
-                if (err) return next(err);
+            Inventory.findByIdAndRemove(req.params.id, function(err,data) {
+
+              if (err){
+                res.send('Object does not exist');
+                return next(err);
+              }
+              else if (!data) {
+                res.send('Object does not exist');
+              }
+              else{
                 res.send('Inventory Deleted');
+              }
             });
         };
     });
+};
+// GET ALL----------------------------------------------------------------------
+exports.inventory_getAll = function(req, res) {
+            Inventory.find(function(err, inventory) {
+              if (!err){
+                res.send(inventory);
+              }
+              else{
+                res.send('Object does not exist');
+                return next(err);
+              }
+            });
 };
